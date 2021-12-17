@@ -45,12 +45,13 @@ Select scopes
     click element   ${tradinginfo}//parent::label
     checkbox should not be selected     trading_information
 
-Token name
+Test token name
     click element   ${trade}//parent::label
     checkbox should be selected     trade
     page should contain element     ${tokeninput}
     click element   ${tokeninput}
     input text      ${tokeninput}   hi
+    sleep   5
 
 Empty input
     press keys  ${tokeninput}   CTRL+A  DELETE
@@ -58,16 +59,36 @@ Empty input
     Should be empty     ${textlength}
     page should contain     Please enter a token name.
     element should be disabled  ${create_btn}
+    sleep   5
 
 Less than 2
     input text      ${tokeninput}   n
     page should contain     Length of token name must be between 2 and 32 characters.
     element should be disabled  ${create_btn}
+    sleep   5
 
 Special case
     input text      ${tokeninput}   !@
     page should contain     Only letters, numbers, and underscores are allowed.
     element should be disabled  ${create_btn}
+    sleep   5
+
+Creating token
+    press keys  ${tokeninput}   CTRL+A  DELETE
+    click element   ${tokeninput}
+    input text      ${tokeninput}   hello
+    sleep   3
+    click element   ${create_btn}
+
+Test copy btn
+    sleep   10
+    click element   ${copy}
+    sleep   5
+
+Test delete btn
+    click element   ${delete}
+    sleep   3
+    click element   Get Text ${delete_grp}
 
 
 

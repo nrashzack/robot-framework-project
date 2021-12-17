@@ -16,9 +16,10 @@ ${admin}    //*[text()="Admin"]
 ${tradinginfo}  //*[text()="Trading information"]
 ${tokeninput}     token_name
 ${create_btn}   //*[@class="dc-btn dc-btn__effect dc-btn--primary dc-btn__large da-api-token__button"]
-
-
-
+${copy}     //*[@class="da-api-token__clipboard-wrapper"]
+${delete}     //*[@type="button"]
+&{delete_grp}   //table[contains(@id, "app_contents")]//tr[1]/td[5]/div/button[2]
+#//*[@type="button" and contains(text(),"Yes")]
 
 
 
@@ -27,11 +28,13 @@ Open Deriv
    Login    ${my_email}     ${my_pw}
    Manage account settings
    Select scopes
-   Token name
+   Test token name
    Empty input
    Less than 2
    Special case
-
+   Creating token
+   Test copy btn
+   Test delete btn
 
 
 
