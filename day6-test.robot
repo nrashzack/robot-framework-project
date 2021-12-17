@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Resource   common.robot
+Resource   day6-common.robot
 
 *** Variable ***
 ${login_btn}    dt_login_button
